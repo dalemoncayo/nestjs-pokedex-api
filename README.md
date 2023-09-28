@@ -22,9 +22,50 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Pokedex NestJS Application
+
 ## Description
 
+This is a straightforward implementation of a CRUD API designed for managing Pokemon-related data operations.
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+## Setting up the MySQL Database
+
+1. Create a MySQL table with the following schema:
+
+```sql
+CREATE TABLE `pokemon` (
+  `hp` int NOT NULL,
+  `attack` int NOT NULL,
+  `defense` int NOT NULL,
+  `sp_attack` int NOT NULL,
+  `sp_defense` int NOT NULL,
+  `speed` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `image_url` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=810 DEFAULT CHARSET=utf8mb3;
+```
+
+2. Make sure you have a MySQL server installed and running.
+
+## Configuring NestJS for MySQL
+
+1. In the NestJS code, go to the `src` folder.
+2. Open the `config.ts` file.
+3. Update the following values with your MySQL server information:
+
+```bash
+export const HOST = 'your-mysql-hostname'; // e.g., 'localhost'
+export const PORT = 3306; // MySQL default port
+export const USERNAME = 'your-mysql-username';
+export const PASSWORD = 'your-mysql-password';
+export const DATABASE = 'pokemon';
+```
+
+Replace 'your-mysql-hostname', 'your-mysql-username', and 'your-mysql-password' with your MySQL server's hostname, username, and password.
 
 ## Installation
 
@@ -62,11 +103,6 @@ $ npm run test:cov
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
